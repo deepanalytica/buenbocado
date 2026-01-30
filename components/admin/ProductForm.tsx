@@ -162,7 +162,7 @@ export function ProductForm({ initialData, flavors }: ProductFormProps) {
                                     <input
                                         {...register("name")}
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-brand focus:outline-none"
-                                        placeholder="Ej: Puré de Manzana"
+                                        placeholder="Ej: Compota de Manzana"
                                     />
                                     {errors.name && <span className="text-red-500 text-xs">{errors.name.message}</span>}
                                 </div>
@@ -172,7 +172,7 @@ export function ProductForm({ initialData, flavors }: ProductFormProps) {
                                     <input
                                         {...register("slug")}
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-brand focus:outline-none font-mono text-sm bg-gray-50"
-                                        placeholder="pure-de-manzana"
+                                        placeholder="compota-de-manzana"
                                     />
                                     {errors.slug && <span className="text-red-500 text-xs">{errors.slug.message}</span>}
                                 </div>

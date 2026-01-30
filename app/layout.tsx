@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const nunito = Nunito({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "800"],
-  variable: "--font-nunito",
+  variable: "--font-inter",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
-  title: "BuenBocado | Colaciones ricas y simples para niños",
-  description: "Pouches de puré de fruta con ingredientes claros y sabores que les gustan. Porciones prácticas para colaciones sin complicaciones.",
+  title: "BuenBocado | Colaciones Premium para Niños",
+  description: "Nutrición real, sabores naturales y el snack perfecto para el desarrollo de tus hijos. Sin sellos, sin azúcar añadida.",
   openGraph: {
-    title: "BuenBocado | Colaciones ricas y simples para niños",
-    description: "Pouches de puré de fruta con ingredientes claros y sabores que les gustan.",
+    title: "BuenBocado | Colaciones Premium para Niños",
+    description: "Nutrición real, sabores naturales y el snack perfecto para el desarrollo de tus hijos.",
     type: "website",
     locale: "es_CL",
   },
@@ -28,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es-CL">
-      <body className={`${nunito.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased text-gray-900`}>
         <Header />
         {children}
         <Footer />

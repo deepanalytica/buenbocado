@@ -1,6 +1,6 @@
 # BuenBocado Ecommerce
 
-Sitio web ecommerce completo para BuenBocado - pouches de puré de fruta para niños en Chile.
+Sitio web ecommerce completo para BuenBocado - pouches de compota de fruta para niños en Chile.
 
 ## 🚀 Características
 

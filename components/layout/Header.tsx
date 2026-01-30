@@ -2,141 +2,126 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { ShoppingCart, Menu, X, ArrowRight } from "lucide-react";
 import { useCartStore } from "@/lib/store/cart";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const itemCount = useCartStore((state) => state.getItemCount());
 
-    return (
-        <header className="sticky top-0 z-50 bg-white shadow-md">
-            {/* Top bar */}
-            <div className="bg-green-brand text-white py-2 text-center text-sm">
-                Despacho en Chile · Pago seguro · Soporte por WhatsApp
-            </div>
+    useEffect(() => {
+        setMounted(true);
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
-            {/* Main header */}
+    const navLinks = [
+        { name: "Tienda", href: "/tienda" },
+        { name: "Packs", href: "/packs" },
+        { name: "Colegios", href: "/b2b" },
+        { name: "Suscripción", href: "/#cta" },
+        { name: "Nosotros", href: "/sobre-nosotros" }
+    ];
+
+    return (
+        <header
+            className={`sticky top-0 z-[100] transition-all duration-500 ${scrolled
+                    ? "py-3 bg-white/70 backdrop-blur-2xl border-b border-gray-100/50 shadow-premium"
+                    : "py-6 bg-transparent"
+                }`}
+        >
             <div className="container">
-                <div className="flex items-center justify-between py-4">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center">
-                        <Image
-                            src="/logo.png"
-                            alt="BuenBocado"
-                            width={180}
-                            height={50}
-                            className="h-12 w-auto"
-                            priority
-                        />
+                <div className="bg-white/80 backdrop-blur-xl border border-white/50 rounded-[2rem] px-8 py-4 flex items-center justify-between shadow-premium transition-all">
+                    {/* Logo Area */}
+                    <Link href="/" className="flex items-center group">
+                        <div className="relative h-10 w-auto">
+                            <Image
+                                src="/assets/logo.png"
+                                alt="BuenBocado"
+                                width={160}
+                                height={50}
+                                className="h-full w-auto object-contain group-hover:scale-105 transition-transform"
+                                priority
+                            />
+                        </div>
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-8">
-                        <Link
-                            href="/tienda"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors"
-                        >
-                            Tienda
-                        </Link>
-                        <Link
-                            href="/packs"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors"
-                        >
-                            Packs
-                        </Link>
-                        <Link
-                            href="/b2b"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors"
-                        >
-                            Colegios y Kioscos
-                        </Link>
-                        <Link
-                            href="/faq"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors"
-                        >
-                            FAQ
-                        </Link>
-                        <Link
-                            href="/sobre-nosotros"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors"
-                        >
-                            Sobre Nosotros
-                        </Link>
+                    {/* Elite Navigation */}
+                    <nav className="hidden lg:flex items-center gap-10">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className="relative text-[10px] font-black uppercase tracking-[0.25em] text-gray-500 hover:text-green-brand transition-colors group"
+                            >
+                                <span>{link.name}</span>
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-brand transition-all group-hover:w-full" />
+                            </Link>
+                        ))}
                     </nav>
 
-                    {/* Cart & Mobile Menu */}
+                    {/* Action Hub */}
                     <div className="flex items-center gap-4">
                         <Link
                             href="/carrito"
-                            className="relative p-2 hover:bg-green-light rounded-lg transition-colors"
+                            className="relative w-12 h-12 flex items-center justify-center bg-gray-900 text-white rounded-2xl hover:bg-green-brand transition-all shadow-xl hover:-translate-y-1 active:scale-95 group"
                         >
-                            <ShoppingCart className="w-6 h-6 text-green-brand" />
-                            {itemCount > 0 && (
-                                <span className="absolute -top-1 -right-1 bg-green-brand text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                            <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            {mounted && itemCount > 0 && (
+                                <span className="absolute -top-2 -right-2 bg-green-brand text-white text-[9px] font-black rounded-full w-6 h-6 flex items-center justify-center shadow-lg border-2 border-white animate-bounce-short">
                                     {itemCount}
                                 </span>
                             )}
                         </Link>
 
-                        {/* Mobile menu button */}
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="md:hidden p-2 hover:bg-green-light rounded-lg transition-colors"
+                            className="lg:hidden w-12 h-12 flex items-center justify-center bg-marfil border border-gray-100 rounded-2xl text-gray-900 hover:text-green-brand transition-all"
                         >
-                            {mobileMenuOpen ? (
-                                <X className="w-6 h-6 text-green-brand" />
-                            ) : (
-                                <Menu className="w-6 h-6 text-green-brand" />
-                            )}
+                            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                         </button>
                     </div>
                 </div>
             </div>
 
-            {/* Mobile Navigation */}
-            {mobileMenuOpen && (
-                <div className="md:hidden border-t border-gray-200 bg-white">
-                    <nav className="container py-4 flex flex-col gap-4">
-                        <Link
-                            href="/tienda"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors py-2"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Tienda
-                        </Link>
-                        <Link
-                            href="/packs"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors py-2"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Packs
-                        </Link>
-                        <Link
-                            href="/b2b"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors py-2"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Colegios y Kioscos
-                        </Link>
-                        <Link
-                            href="/faq"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors py-2"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            FAQ
-                        </Link>
-                        <Link
-                            href="/sobre-nosotros"
-                            className="text-gray-700 hover:text-green-brand font-medium transition-colors py-2"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Sobre Nosotros
-                        </Link>
-                    </nav>
-                </div>
-            )}
+            {/* Premium Mobile Menu */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="fixed inset-x-4 top-24 z-50 lg:hidden"
+                    >
+                        <div className="bg-white/90 backdrop-blur-2xl border border-white/50 rounded-[2.5rem] p-8 shadow-2xl">
+                            <nav className="flex flex-col gap-2">
+                                {navLinks.map((link, idx) => (
+                                    <motion.div
+                                        key={link.href}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: idx * 0.05 }}
+                                    >
+                                        <Link
+                                            href={link.href}
+                                            className="flex items-center justify-between p-5 rounded-2xl hover:bg-green-brand/5 text-[11px] font-black uppercase tracking-widest text-gray-900 group"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                        >
+                                            <span>{link.name}</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-green-brand" />
+                                        </Link>
+                                    </motion.div>
+                                ))}
+                            </nav>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }

@@ -121,3 +121,35 @@ export async function createB2BLead(leadData: any) {
         data: leadData,
     });
 }
+
+// Get related products (same category, excluding current)
+export async function getRelatedProducts(excludeId: string, category: string, limit: number = 8) {
+    return await prisma.product.findMany({
+        where: {
+            status: 'active',
+            category: category,
+            id: { not: excludeId }
+        },
+        include: {
+            variants: {
+                include: {
+                    flavor: true,
+                },
+            },
+        },
+        take: limit,
+        orderBy: {
+            createdAt: 'desc',
+        },
+    });
+}
+
+// Get packs for upsell
+export async function getUpsellPacks() {
+    return await prisma.pack.findMany({
+        where: { enabled: true },
+        orderBy: {
+            size: 'asc',
+        },
+    });
+}
