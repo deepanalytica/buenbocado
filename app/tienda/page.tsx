@@ -1,6 +1,12 @@
+import { getProducts } from "@/lib/queries";
+import { ProductCard } from "@/components/product/ProductCard";
 import Link from "next/link";
 
-export default function TiendaPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function TiendaPage() {
+    const products = await getProducts();
+
     return (
         <main className="container py-12">
             <div className="mb-8">
@@ -63,7 +69,9 @@ export default function TiendaPage() {
                 <div className="lg:col-span-3">
                     {/* Sort */}
                     <div className="flex justify-between items-center mb-6">
-                        <p className="text-gray-600">Mostrando todos los productos</p>
+                        <p className="text-gray-600">
+                            Mostrando {products.length} productos
+                        </p>
                         <select className="border border-gray-300 rounded-lg px-4 py-2">
                             <option>Más populares</option>
                             <option>Precio: menor a mayor</option>
@@ -73,20 +81,37 @@ export default function TiendaPage() {
                     </div>
 
                     {/* Products */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div className="card text-center">
-                            <div className="relative aspect-square mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
-                                <p className="text-gray-400">Producto 1</p>
-                            </div>
-                            <p className="text-gray-600">Los productos se cargarán desde la base de datos</p>
+                    {products.length > 0 ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {products.map((product) => {
+                                const variant = product.variants[0]; // Get first variant (90g)
+                                if (!variant) return null;
+
+                                return (
+                                    <ProductCard
+                                        key={product.id}
+                                        id={product.id}
+                                        name={product.name}
+                                        slug={product.slug}
+                                        price={variant.price}
+                                        compareAtPrice={variant.compareAtPrice || undefined}
+                                        flavorName={variant.flavor.name}
+                                        flavorColor={variant.flavor.colorHex}
+                                        image={product.heroImage || `/assets/products/${variant.flavor.slug}.png`}
+                                        badges={product.badges}
+                                        weight={variant.weight}
+                                    />
+                                );
+                            })}
                         </div>
-                        <div className="card text-center">
-                            <div className="relative aspect-square mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
-                                <p className="text-gray-400">Producto 2</p>
-                            </div>
-                            <p className="text-gray-600">Necesitamos configurar la base de datos primero</p>
+                    ) : (
+                        <div className="text-center py-12">
+                            <p className="text-gray-500 mb-4">No hay productos disponibles</p>
+                            <Link href="/" className="btn btn-primary">
+                                Volver al inicio
+                            </Link>
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </main>
