@@ -47,7 +47,7 @@ export default function HomePage() {
                         {/* Hero Image */}
                         <div className="relative h-[400px] lg:h-[500px]">
                             <Image
-                                src="/assets/hero_banner_1769801150940.png"
+                                src="/assets/hero-banner.png"
                                 alt="Niños felices con BuenBocado"
                                 fill
                                 className="object-contain"
@@ -70,7 +70,7 @@ export default function HomePage() {
                         <div className="text-center">
                             <div className="w-20 h-20 mx-auto mb-4 relative">
                                 <Image
-                                    src="/assets/icon_simple_ingredients_1769801235502.png"
+                                    src="/assets/icons/simple-ingredients.png"
                                     alt="Ingredientes simples"
                                     fill
                                     className="object-contain"
@@ -86,7 +86,7 @@ export default function HomePage() {
                         <div className="text-center">
                             <div className="w-20 h-20 mx-auto mb-4 relative">
                                 <Image
-                                    src="/assets/icon_simple_ingredients_1769801235502.png"
+                                    src="/assets/icons/practical-portion.png"
                                     alt="Simple"
                                     fill
                                     className="object-contain"
@@ -102,7 +102,7 @@ export default function HomePage() {
                         <div className="text-center">
                             <div className="w-20 h-20 mx-auto mb-4 relative">
                                 <Image
-                                    src="/assets/icon_practical_portion_1769801250693.png"
+                                    src="/assets/icons/no-mess.png"
                                     alt="Práctico"
                                     fill
                                     className="object-contain"
@@ -118,7 +118,7 @@ export default function HomePage() {
                         <div className="text-center">
                             <div className="w-20 h-20 mx-auto mb-4 relative">
                                 <Image
-                                    src="/assets/icon_quality_1769801280974.png"
+                                    src="/assets/icons/quality.png"
                                     alt="Confiable"
                                     fill
                                     className="object-contain"
