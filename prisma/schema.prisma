@@ -5,7 +5,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -13,13 +13,13 @@ model Product {
   id          String    @id @default(cuid())
   name        String
   slug        String    @unique
-  description String?   @db.Text
+  description String?
   category    String    // "pouch" | "pack"
   status      String    @default("active") // "active" | "draft"
   
   heroImage   String?
-  galleryImages String[] @default([])
-  badges      String[]  @default([])
+  galleryImages String    @default("")
+  badges        String    @default("")
   
   seoTitle       String?
   seoDescription String?
@@ -38,7 +38,7 @@ model Flavor {
   name      String @unique
   slug      String @unique
   colorHex  String
-  fruitAssets String[] @default([])
+  fruitAssets String    @default("")
   notes     String?
   sortOrder Int    @default(0)
   
@@ -202,7 +202,7 @@ model ContentBlock {
   page       String  // "faq" | "about" | "terms" | etc
   sectionKey String  // unique identifier for this content piece
   title      String
-  body       String  @db.Text
+  body       String
   enabled    Boolean @default(true)
   sortOrder  Int     @default(0)
   
@@ -235,7 +235,7 @@ model B2BLead {
   phone           String
   businessType    String  // "school" | "kiosk" | "minimarket"
   estimatedVolume String?
-  message         String? @db.Text
+  message         String?
   status          String  @default("new") // "new" | "contacted" | "converted"
   
   createdAt DateTime @default(now())

@@ -54,7 +54,7 @@ export default async function AdminProductsPage() {
                             </tr>
                         ) : (
                             products.map((product) => {
-                                const totalStock = product.variants.reduce((acc, v) => acc + v.stock, 0);
+                                const totalStock = product.variants.reduce((acc: number, v: { stock: number | null }) => acc + (v.stock || 0), 0);
                                 // Placeholder image based on flavor logic we used elsewhere
                                 const imagePath = `/assets/products/${product.slug.split('-')[1] || 'durazno'}.png`;
 
@@ -95,7 +95,7 @@ export default async function AdminProductsPage() {
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="flex flex-col gap-1">
-                                                {product.variants.map(v => (
+                                                {product.variants.map((v: { id: string; size: string; price: number }) => (
                                                     <span key={v.id} className="text-xs text-gray-600">
                                                         {v.size} - {formatPrice(v.price)}
                                                     </span>
@@ -107,8 +107,8 @@ export default async function AdminProductsPage() {
                                         </td>
                                         <td className="px-6 py-4">
                                             <span className={`px-2 py-1 rounded-full text-xs font-semibold ${product.status === 'active'
-                                                    ? 'bg-green-100 text-green-800'
-                                                    : 'bg-gray-100 text-gray-800'
+                                                ? 'bg-green-100 text-green-800'
+                                                : 'bg-gray-100 text-gray-800'
                                                 }`}>
                                                 {product.status === 'active' ? 'Activo' : 'Borrador'}
                                             </span>
