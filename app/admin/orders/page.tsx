@@ -67,15 +67,15 @@ export default async function AdminOrdersPage() {
                                     </td>
                                 </tr>
                             ) : (
-                                orders.map((order) => (
+                                orders.map((order: any) => (
                                     <tr key={order.id} className="bg-white border-b hover:bg-gray-50">
                                         <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             #{order.id.slice(-6).toUpperCase()}
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="flex flex-col">
-                                                <span className="font-medium">{order.firstName} {order.lastName}</span>
-                                                <span className="text-xs text-gray-500">{order.email}</span>
+                                                <span className="font-medium">{order.customerName}</span>
+                                                <span className="text-xs text-gray-500">{order.customerEmail}</span>
                                             </div>
                                         </td>
                                         <td className="px-6 py-4">
@@ -85,8 +85,8 @@ export default async function AdminOrdersPage() {
                                             {formatPrice(order.total)}
                                         </td>
                                         <td className="px-6 py-4">
-                                            <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusColor(order.status)}`}>
-                                                {getStatusLabel(order.status)}
+                                            <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusColor(order.orderStatus)}`}>
+                                                {getStatusLabel(order.orderStatus)}
                                             </span>
                                         </td>
                                         <td className="px-6 py-4">

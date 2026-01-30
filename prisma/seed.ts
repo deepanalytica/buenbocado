@@ -96,7 +96,7 @@ async function main() {
                 category: 'pouch',
                 status: 'active',
                 heroImage: `/assets/products/${flavor.slug}.png`,
-                badges: flavor.sortOrder <= 3 ? ['Favorito'] : [],
+                badges: flavor.sortOrder <= 3 ? 'Favorito' : '',
                 seoTitle: `Puré de ${flavor.name} - BuenBocado`,
                 seoDescription: `Compra puré de ${flavor.name.toLowerCase()} en pouch. Colación práctica y rica para niños. Envío a todo Chile.`,
             },

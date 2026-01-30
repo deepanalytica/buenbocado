@@ -109,7 +109,7 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
                                 <span>{formatPrice(order.subtotal)}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-gray-600">Envío ({order.shippingMethod})</span>
+                                <span className="text-gray-600">Envío</span>
                                 <span>{formatPrice(order.shippingCost)}</span>
                             </div>
                             <div className="flex justify-between">
@@ -132,21 +132,21 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
                             <div className="flex gap-3">
                                 <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
                                     <span className="font-bold text-gray-600">
-                                        {order.firstName[0]}{order.lastName[0]}
+                                        {order.customerName.charAt(0)}
                                     </span>
                                 </div>
                                 <div>
-                                    <p className="font-medium">{order.firstName} {order.lastName}</p>
-                                    <p className="text-gray-500">Cliente Recurrente (Ejemplo)</p>
+                                    <p className="font-medium">{order.customerName}</p>
+                                    <p className="text-gray-500">Cliente Recurrente</p>
                                 </div>
                             </div>
                             <div className="flex gap-3 items-center text-gray-600">
                                 <Mail className="w-4 h-4" />
-                                <a href={`mailto:${order.email}`} className="hover:underline">{order.email}</a>
+                                <a href={`mailto:${order.customerEmail}`} className="hover:underline">{order.customerEmail}</a>
                             </div>
                             <div className="flex gap-3 items-center text-gray-600">
                                 <Phone className="w-4 h-4" />
-                                <a href={`tel:${order.phone}`} className="hover:underline">{order.phone}</a>
+                                <a href={`tel:${order.customerPhone}`} className="hover:underline">{order.customerPhone}</a>
                             </div>
                         </div>
                     </div>
@@ -156,11 +156,11 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
                         <div className="flex gap-3 text-sm text-gray-600">
                             <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
                             <div>
-                                <p>{order.addressStreet} {order.addressNumber}</p>
+                                <p>{order.address} {order.addressNumber}</p>
                                 <p>{order.commune}, {order.region}</p>
-                                {order.additionalInfo && (
+                                {order.deliveryNotes && (
                                     <p className="mt-2 text-xs bg-yellow-50 p-2 rounded text-yellow-800">
-                                        Nota: {order.additionalInfo}
+                                        Nota: {order.deliveryNotes}
                                     </p>
                                 )}
                             </div>
@@ -172,10 +172,10 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
                         <div className="flex gap-3 text-sm text-gray-600 items-center">
                             <CreditCard className="w-4 h-4" />
                             <div>
-                                <p className="font-medium">{order.paymentMethod === 'transfer' ? 'Transferencia Bancaria' : order.paymentMethod}</p>
-                                <p className={`text-xs mt-1 px-2 py-0.5 rounded-full inline-block ${order.status === 'completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+                                <p className="font-medium">{order.paymentMethod === 'bank_transfer' ? 'Transferencia Bancaria' : order.paymentMethod}</p>
+                                <p className={`text-xs mt-1 px-2 py-0.5 rounded-full inline-block ${order.paymentStatus === 'paid' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
                                     }`}>
-                                    {order.status === 'completed' ? 'Pagado' : 'Pendiente'}
+                                    {order.paymentStatus === 'paid' ? 'Pagado' : 'Pendiente'}
                                 </p>
                             </div>
                         </div>

@@ -29,8 +29,8 @@ export default async function ProductoPage({ params }: { params: { slug: string 
     }
 
     // Group variants by weight
-    const variant90 = product.variants.find(v => v.weight === 90);
-    const variant120 = product.variants.find(v => v.weight === 120);
+    const variant90 = product.variants.find((v: any) => v.weight === 90);
+    const variant120 = product.variants.find((v: any) => v.weight === 120);
     const defaultVariant = variant90 || variant120 || product.variants[0];
 
     if (!defaultVariant) {
@@ -81,9 +81,9 @@ export default async function ProductoPage({ params }: { params: { slug: string 
                     </p>
 
                     {/* Badges */}
-                    {product.badges.length > 0 && (
+                    {product.badges && product.badges.length > 0 && (
                         <div className="flex gap-2 mb-6">
-                            {product.badges.map((badge) => (
+                            {product.badges.split(',').filter(Boolean).map((badge) => (
                                 <span
                                     key={badge}
                                     className="bg-green-light text-green-dark text-sm font-semibold px-3 py-1 rounded-full"

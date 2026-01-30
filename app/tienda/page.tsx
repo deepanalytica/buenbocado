@@ -83,7 +83,7 @@ export default async function TiendaPage() {
                     {/* Products */}
                     {products.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {products.map((product) => {
+                            {products.map((product: any) => {
                                 const variant = product.variants[0]; // Get first variant (90g)
                                 if (!variant) return null;
 
@@ -98,7 +98,7 @@ export default async function TiendaPage() {
                                         flavorName={variant.flavor.name}
                                         flavorColor={variant.flavor.colorHex}
                                         image={product.heroImage || `/assets/products/${variant.flavor.slug}.png`}
-                                        badges={product.badges}
+                                        badges={product.badges ? product.badges.split(',').filter(Boolean) : []}
                                         weight={variant.weight}
                                     />
                                 );
