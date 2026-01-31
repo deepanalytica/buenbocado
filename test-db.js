@@ -1,6 +1,6 @@
 const { Client } = require('pg');
 
-const connectionString = 'postgresql://postgres.aycpiliahzugvwtvdjdc:EXnoEhoz8xOfVMyS@aws-0-us-west-2.pooler.supabase.com:6543/postgres?pgbouncer=true';
+const connectionString = 'postgresql://postgres:EXnoEhoz8xOfVMyS@db.aycpiliahzugvwtvdjdc.supabase.co:5432/postgres?sslmode=require';
 
 const client = new Client({
     connectionString: connectionString,
@@ -16,7 +16,8 @@ async function testConnection() {
         console.log('Current time from DB:', res.rows[0].now);
         await client.end();
     } catch (err) {
-        console.error('❌ Connection failed:', err.message);
+        console.error('❌ Connection failed:');
+        console.error(err);
         process.exit(1);
     }
 }
