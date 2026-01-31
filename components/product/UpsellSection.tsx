@@ -21,7 +21,7 @@ export function UpsellSection({ currentVariant, upsellPack }: UpsellSectionProps
         <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="overflow-hidden rounded-3xl bg-gray-50/50 border border-gray-100 p-8 lg:p-10 relative"
+            className="overflow-hidden rounded-3xl bg-gray-50/50 border border-gray-100 p-8 lg:p-12 relative"
         >
             <div className="flex items-center gap-3 mb-6">
                 <div className="bg-green-brand/10 text-green-700 p-2 rounded-xl">
@@ -41,20 +41,20 @@ export function UpsellSection({ currentVariant, upsellPack }: UpsellSectionProps
                 Al elegir el pack de {upsellPack.size} unidades, el precio por unidad baja de {formatPrice(currentVariant.price)} a <span className="text-gray-900 font-bold">{formatPrice(unitPriceInPack)}</span>.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-white rounded-2xl p-6 mb-8 border border-gray-100 shadow-sm">
-                <div className="flex-1">
-                    <div className="text-[10px] text-gray-400 uppercase font-black tracking-widest mb-1.5 flex items-center gap-1">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 bg-white rounded-2xl p-7 lg:p-8 mb-8 border border-gray-100 shadow-sm">
+                <div className="flex-1 text-center sm:text-left">
+                    <div className="text-xs text-gray-400 uppercase font-bold tracking-widest mb-2 flex items-center justify-center sm:justify-start gap-1">
                         Precio por Unidad
                     </div>
-                    <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-black text-gray-900">{formatPrice(unitPriceInPack)}</span>
+                    <div className="flex items-baseline justify-center sm:justify-start gap-2">
+                        <span className="text-xl font-extrabold text-gray-900">{formatPrice(unitPriceInPack)}</span>
                         <span className="text-sm text-gray-300 line-through font-bold">{formatPrice(currentVariant.price)}</span>
                     </div>
                 </div>
-                <div className="hidden sm:block w-px h-10 bg-gray-100" />
-                <div className="flex-1">
-                    <div className="text-[10px] text-green-700 uppercase font-bold tracking-widest mb-1.5 italic">Total del Pack (10u)</div>
-                    <div className="text-2xl font-black text-green-brand">{formatPrice(packPrice)}</div>
+                <div className="hidden sm:block w-px h-12 bg-gray-100 mx-2" />
+                <div className="flex-1 text-center sm:text-left">
+                    <div className="text-xs text-green-700 uppercase font-bold tracking-widest mb-2 italic">Total del Pack (10u)</div>
+                    <div className="text-xl font-extrabold text-green-brand">{formatPrice(packPrice)}</div>
                 </div>
             </div>
 

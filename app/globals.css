@@ -27,8 +27,9 @@
 
   /* Layout Tokens */
   --bocado-container-max: 1440px;
-  --bocado-container-px: clamp(1.25rem, 5vw, 4rem);
-  --section-py: clamp(5rem, 10vw, 10rem);
+  --bocado-container-px: clamp(1rem, 5vw, 4rem);
+  --section-py: clamp(4rem, 10vw, 10rem);
+  --safe-area-bottom: env(safe-area-inset-bottom, 20px);
 
   /* Elevation */
   --shadow-premium: 0 4px 30px -4px rgba(0, 0, 0, 0.05), 0 10px 40px -6px rgba(0, 0, 0, 0.03);
@@ -54,6 +55,13 @@ body {
   line-height: 1.6;
   font-family: var(--font-sans);
   font-size: 16px;
+  padding-bottom: var(--safe-area-bottom);
+}
+
+@media (max-width: 380px) {
+  body {
+    font-size: 15px;
+  }
 }
 
 /* Fluid Typography Engine */
@@ -96,8 +104,8 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  height: clamp(3.5rem, 5vw, 4.5rem);
-  padding: 0 clamp(2rem, 4vw, 3.5rem);
+  height: clamp(3.5rem, 6vw, 4.5rem);
+  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
   border-radius: 1.25rem;
   font-weight: 900;
   font-family: var(--font-heading);

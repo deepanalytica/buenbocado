@@ -52,13 +52,13 @@ export const PacksSection = () => {
                         <Box className="w-4 h-4 text-green-brand" />
                         <span className="text-[10px] font-black uppercase tracking-[0.25em] text-gray-400">Logística Inteligente</span>
                     </div>
-                    <h2 className="tracking-tighter mb-8">Packs que <span className="text-gradient">simplifican</span> todo.</h2>
-                    <p className="text-gray-500 font-medium">
+                    <h2 className="tracking-tighter mb-6 lg:mb-8">Packs que <span className="text-gradient">simplifican</span> todo.</h2>
+                    <p className="text-gray-500 font-medium text-sm lg:text-base pr-4">
                         Selecciona el formato ideal para tu hogar y asegura que nunca falte una colación nutritiva en la mesa.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12 max-w-7xl mx-auto">
                     {PACKS.map((pack, idx) => {
                         const isFeatured = pack.type === 'featured';
 
@@ -69,7 +69,7 @@ export const PacksSection = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                className={`relative group group flex flex-col h-full bg-white rounded-[3rem] p-12 transition-all duration-500 hover:shadow-hover hover:-translate-y-4 border ${isFeatured ? 'ring-[6px] ring-green-brand/5 border-green-brand/20' : 'border-gray-100'}`}
+                                className={`relative group group flex flex-col h-full bg-white rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-12 transition-all duration-500 hover:shadow-hover hover:-translate-y-4 border ${isFeatured ? 'ring-[6px] ring-green-brand/5 border-green-brand/20' : 'border-gray-100'}`}
                             >
                                 {pack.badge && (
                                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-gray-900 text-white text-[9px] font-black px-6 py-2.5 rounded-full uppercase tracking-widest shadow-xl">

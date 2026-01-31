@@ -14,7 +14,7 @@ export function RelatedProductsCarousel({ products }: RelatedProductsCarouselPro
     return (
         <section className="py-24 bg-marfil/50 border-t border-gray-100">
             <div className="container">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 px-4">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-10 lg:mb-16 gap-6 px-4">
                     <div className="max-w-3xl">
                         <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">
                             <span>Recomendados</span>
@@ -35,7 +35,7 @@ export function RelatedProductsCarousel({ products }: RelatedProductsCarouselPro
                             if (!variant) return null;
 
                             return (
-                                <div key={product.id} className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_28%] xl:flex-[0_0_23%] min-w-0 p-3">
+                                <div key={product.id} className="flex-[0_0_90%] sm:flex-[0_0_45%] lg:flex-[0_0_28%] xl:flex-[0_0_23%] min-w-0 p-2 lg:p-3">
                                     <ProductCard
                                         id={product.id}
                                         name={product.name}

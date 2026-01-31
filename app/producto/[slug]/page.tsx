@@ -7,6 +7,7 @@ import { UpsellSection } from "@/components/product/UpsellSection";
 import { DownsellSection } from "@/components/product/DownsellSection";
 import Link from "next/link";
 import { ArrowLeft, Check, Truck, Shield, RotateCcw, Star, Leaf, Award, ChevronDown, Sparkles } from "lucide-react";
+import { MobileStickyBuy } from "@/components/product/MobileStickyBuy";
 
 export default async function ProductPage({ params }: { params: { slug: string } }) {
     const product = await getProductBySlug(params.slug);
@@ -26,8 +27,8 @@ export default async function ProductPage({ params }: { params: { slug: string }
     }
 
     return (
-        <main className="min-h-screen pb-32 bg-white">
-            <div className="container pt-32 pb-16">
+        <main className="min-h-screen pb-32 lg:pb-32 bg-white">
+            <div className="container lg:pt-32 pt-24 pb-16">
                 {/* Elite Back Navigation */}
                 <Link
                     href="/tienda"
@@ -179,6 +180,9 @@ export default async function ProductPage({ params }: { params: { slug: string }
             <section className="mt-32 pt-24 bg-gray-soft/30 border-t border-gray-50">
                 <RelatedProductsCarousel products={relatedProducts} />
             </section>
+
+            {/* Mobile Conversion Trigger */}
+            <MobileStickyBuy product={product} activeVariant={defaultVariant} />
         </main>
     );
 }

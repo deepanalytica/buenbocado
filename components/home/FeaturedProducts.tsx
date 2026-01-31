@@ -36,7 +36,7 @@ export const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
 
             <div className="container relative z-10">
                 {/* Elite Section Header */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-24 md:mb-32">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-end mb-16 lg:mb-32">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
                 </div>
 
                 {/* Staggered Grid Experience */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-24">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-12 mb-24">
                     {products.length > 0 ? (
                         products.map((product, index) => {
                             const variant = product.variants.find(v => v.weight === 90) || product.variants[0];

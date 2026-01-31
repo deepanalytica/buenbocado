@@ -52,11 +52,11 @@ export const TrustSection = () => {
                             <Orbit className="w-4 h-4 text-green-brand animate-spin-slow" />
                             <span className="text-[10px] font-black uppercase tracking-[0.25em] text-gray-400">Nuestro Compromiso</span>
                         </div>
-                        <h2 className="mb-8 tracking-tighter">
+                        <h2 className="mb-6 lg:mb-8 tracking-tighter">
                             Nutrición real para <br />
                             <span className="text-gradient">niños activos.</span>
                         </h2>
-                        <p className="text-gray-500 font-medium max-w-lg leading-relaxed">
+                        <p className="text-gray-500 font-medium max-w-lg leading-relaxed text-sm lg:text-base">
                             No solo hacemos compotas de fruta; diseñamos momentos de bienestar. La tranquilidad de saber que están recibiendo lo mejor de la naturaleza, sin atajos.
                         </p>
                     </motion.div>
@@ -83,7 +83,7 @@ export const TrustSection = () => {
                 </div>
 
                 {/* Tactical Features Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
@@ -91,7 +91,7 @@ export const TrustSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                            className="group p-10 rounded-[2.5rem] bg-white border border-gray-100/50 hover:shadow-hover hover:-translate-y-2 transition-all duration-500"
+                            className="group p-8 lg:p-10 rounded-[2rem] lg:rounded-[2.5rem] bg-white border border-gray-100/50 hover:shadow-hover hover:-translate-y-2 transition-all duration-500"
                         >
                             <div className={`w-14 h-14 ${feature.color} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
                                 <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />

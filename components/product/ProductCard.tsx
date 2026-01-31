@@ -32,7 +32,7 @@ export function ProductCard({
     weight,
 }: ProductCardProps) {
     return (
-        <div className="group relative bg-white rounded-[2rem] border border-gray-100/50 p-4 transition-all duration-500 hover:shadow-hover hover:-translate-y-2">
+        <div className="group relative bg-white rounded-[1.5rem] lg:rounded-[2rem] border border-gray-100/50 p-2 lg:p-4 transition-all duration-500 hover:shadow-hover hover:-translate-y-2">
             {/* Top Badge Overlay */}
             <div className="absolute top-8 left-8 z-20 flex flex-col gap-2">
                 {badges && badges.slice(0, 1).map((badge, idx) => (
@@ -54,7 +54,7 @@ export function ProductCard({
             </div>
 
             {/* Image Stage */}
-            <Link href={`/producto/${slug}`} className="block relative bg-gray-soft rounded-[1.5rem] p-10 overflow-hidden mb-8 group-hover:bg-white transition-colors duration-500">
+            <Link href={`/producto/${slug}`} className="block relative bg-gray-soft rounded-[1.25rem] lg:rounded-[1.5rem] p-4 lg:p-10 overflow-hidden mb-4 lg:mb-8 group-hover:bg-white transition-colors duration-500">
                 {/* 3D Depth Aura */}
                 <div className="absolute inset-10 bg-black/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
@@ -80,8 +80,8 @@ export function ProductCard({
                     </span>
                 </div>
 
-                <Link href={`/producto/${slug}`} className="block mb-6">
-                    <h3 className="text-xl font-black text-gray-900 leading-tight tracking-tight group-hover:text-green-brand transition-colors line-clamp-2 h-[2.8rem]">
+                <Link href={`/producto/${slug}`} className="block mb-4 lg:mb-6">
+                    <h3 className="text-sm lg:text-xl font-black text-gray-900 leading-tight tracking-tight group-hover:text-green-brand transition-colors line-clamp-2 h-[2.5rem] lg:h-[2.8rem]">
                         {name}
                     </h3>
                 </Link>
@@ -93,16 +93,16 @@ export function ProductCard({
                                 {formatPrice(compareAtPrice)}
                             </span>
                         )}
-                        <span className="text-2xl font-black text-gray-900 tracking-tighter">
+                        <span className="text-lg lg:text-2xl font-black text-gray-900 tracking-tighter">
                             {formatPrice(price)}
                         </span>
                     </div>
 
                     <Link
                         href={`/producto/${slug}`}
-                        className="w-12 h-12 bg-gray-900 text-white rounded-[1.2rem] flex items-center justify-center hover:bg-green-brand transition-all shadow-xl hover:-translate-y-1 active:scale-95 group/btn"
+                        className="w-10 h-10 lg:w-12 lg:h-12 bg-gray-900 text-white rounded-xl lg:rounded-[1.2rem] flex items-center justify-center hover:bg-green-brand transition-all shadow-xl hover:-translate-y-1 active:scale-95 group/btn"
                     >
-                        <ShoppingCart className="w-5 h-5 group-hover/btn:scale-110 transition-transform" />
+                        <ShoppingCart className="w-4 h-4 lg:w-5 lg:h-5 group-hover/btn:scale-110 transition-transform" />
                     </Link>
                 </div>
             </div>

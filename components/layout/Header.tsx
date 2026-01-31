@@ -31,8 +31,8 @@ export function Header() {
     return (
         <header
             className={`sticky top-0 z-[100] transition-all duration-500 ${scrolled
-                    ? "py-3 bg-white/70 backdrop-blur-2xl border-b border-gray-100/50 shadow-premium"
-                    : "py-6 bg-transparent"
+                ? "py-3 bg-white/70 backdrop-blur-2xl border-b border-gray-100/50 shadow-premium"
+                : "py-6 bg-transparent"
                 }`}
         >
             <div className="container">
@@ -89,36 +89,65 @@ export function Header() {
                 </div>
             </div>
 
-            {/* Premium Mobile Menu */}
+            {/* Premium Mobile Menu - Full Screen Elite Drawer */}
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-x-4 top-24 z-50 lg:hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[150] lg:hidden"
                     >
-                        <div className="bg-white/90 backdrop-blur-2xl border border-white/50 rounded-[2.5rem] p-8 shadow-2xl">
-                            <nav className="flex flex-col gap-2">
+                        {/* Backdrop with Blur */}
+                        <div
+                            className="absolute inset-0 bg-white/60 backdrop-blur-3xl"
+                            onClick={() => setMobileMenuOpen(false)}
+                        />
+
+                        {/* Drawer Content */}
+                        <div className="absolute inset-x-0 top-0 bottom-0 bg-white/80 border-l border-gray-100/50 flex flex-col pt-32 pb-12 px-8 overflow-y-auto">
+                            <nav className="flex flex-col gap-4">
                                 {navLinks.map((link, idx) => (
                                     <motion.div
                                         key={link.href}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: idx * 0.05 }}
+                                        initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
+                                        animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                                        transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                     >
                                         <Link
                                             href={link.href}
-                                            className="flex items-center justify-between p-5 rounded-2xl hover:bg-green-brand/5 text-[11px] font-black uppercase tracking-widest text-gray-900 group"
+                                            className="flex items-center justify-between py-6 border-b border-gray-50 text-2xl font-black uppercase tracking-tight text-gray-900 group"
                                             onClick={() => setMobileMenuOpen(false)}
                                         >
-                                            <span>{link.name}</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-green-brand" />
+                                            <span className="group-hover:text-green-brand transition-colors">{link.name}</span>
+                                            <ArrowRight className="w-6 h-6 text-green-brand opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" />
                                         </Link>
                                     </motion.div>
                                 ))}
                             </nav>
+
+                            {/* Mobile Drawer Footer */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5 }}
+                                className="mt-auto pt-12"
+                            >
+                                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 mb-6">Soporte Elite</p>
+                                <div className="p-8 rounded-[2rem] bg-gray-soft border border-gray-100">
+                                    <p className="font-bold text-gray-900 mb-2">contacto@buenbocado.cl</p>
+                                    <p className="text-sm text-gray-500">Villa Alegre, Maule, Chile</p>
+                                </div>
+                            </motion.div>
                         </div>
+
+                        {/* Close Trigger - Corner Optimized */}
+                        <button
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="absolute top-10 right-10 w-14 h-14 bg-gray-900 text-white rounded-2xl flex items-center justify-center shadow-2xl z-[200]"
+                        >
+                            <X className="w-6 h-6" />
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>

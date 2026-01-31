@@ -26,7 +26,7 @@ export const Hero = () => {
                                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">Snacks de Próxima Generación</span>
                             </div>
 
-                            <h1 className="mb-12">
+                            <h1 className="mb-8 lg:mb-12">
                                 El futuro de su <br />
                                 <span className="text-gradient">nutrición</span> es <br />
                                 <span className="relative">
@@ -37,17 +37,23 @@ export const Hero = () => {
                                 </span>
                             </h1>
 
-                            <p className="max-w-xl mx-auto lg:mx-0 mb-16 text-gray-500 font-medium leading-relaxed">
+                            <p className="max-w-xl mx-auto lg:mx-0 mb-10 lg:mb-16 text-gray-500 font-medium leading-relaxed pr-4">
                                 Redefinimos la colación escolar con compotas de fruta 100% real.
                                 Sin compromisos, sin sellos, solo el sabor puro que les encanta y la energía que necesitan.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center">
-                                <Link href="/tienda" className="btn btn-primary group">
+                            <div className="flex flex-col sm:flex-row items-stretch lg:items-center gap-4 lg:gap-6 justify-center lg:justify-start">
+                                <Link
+                                    href="/tienda"
+                                    className="btn btn-primary group w-full sm:w-auto"
+                                >
                                     <span>Explorar Tienda</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                                 </Link>
-                                <Link href="/packs" className="btn btn-secondary">
+                                <Link
+                                    href="/packs"
+                                    className="glass px-8 py-5 rounded-2xl flex items-center justify-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 hover:text-gray-900 transition-all w-full sm:w-auto active:scale-95"
+                                >
                                     <span>Ver Packs Familiares</span>
                                 </Link>
                             </div>
