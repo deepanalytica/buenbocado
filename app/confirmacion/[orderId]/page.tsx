@@ -9,7 +9,7 @@ export default function ConfirmacionPage({ params }: { params: { orderId: string
     const mockTotal = 28500;
 
     return (
-        <main className="container py-12">
+        <main className="bocado-container py-12">
             <div className="max-w-2xl mx-auto">
                 {/* Success Icon */}
                 <div className="text-center mb-8">

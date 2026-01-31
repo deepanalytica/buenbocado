@@ -6,7 +6,7 @@ export default function SobreNosotrosPage() {
         <main className="bg-marfil min-h-screen">
             {/* Page Header */}
             <section className="bg-white border-b border-gray-100 pb-16 pt-20">
-                <div className="container">
+                <div className="bocado-container text-center">
                     <div className="flex flex-col items-center text-center">
                         <nav className="flex items-center gap-2 mb-8 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
                             <Link href="/" className="hover:text-green-brand transition-colors flex items-center gap-1.5">
@@ -29,7 +29,7 @@ export default function SobreNosotrosPage() {
 
             {/* Mission Section */}
             <section className="section-py">
-                <div className="container">
+                <div className="bocado-container text-center">
                     <div className="max-w-5xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
                             <div className="order-2 lg:order-1">

@@ -20,7 +20,7 @@ export default async function PacksPage() {
             <section className="relative pt-24 pb-20 border-b border-gray-50 overflow-hidden">
                 <div className="absolute top-0 left-0 w-[40rem] h-[40rem] bg-blue-brand/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 -translate-x-1/2"></div>
 
-                <div className="container relative z-10">
+                <div className="bocado-container relative z-10 text-center">
                     <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
                         <nav className="flex items-center gap-3 mb-10 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
                             <Link href="/" className="hover:text-green-brand transition-colors flex items-center gap-2">

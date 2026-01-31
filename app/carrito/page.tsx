@@ -14,7 +14,7 @@ export default function CarritoPage() {
 
     if (items.length === 0) {
         return (
-            <main className="container py-20">
+            <main className="bocado-container py-12">
                 <div className="max-w-md mx-auto text-center">
                     <ShoppingCart className="w-20 h-20 mx-auto mb-6 text-gray-300" />
                     <h1 className="mb-4">Tu carrito está vacío</h1>
@@ -186,5 +186,4 @@ export default function CarritoPage() {
             </div>
         </>
     );
-}
 }

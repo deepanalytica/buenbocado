@@ -3,6 +3,7 @@
 import { Sparkles, TrendingUp, ArrowRight, Package } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 interface UpsellSectionProps {
     currentVariant: any;
@@ -10,6 +11,7 @@ interface UpsellSectionProps {
 }
 
 export function UpsellSection({ currentVariant, upsellPack }: UpsellSectionProps) {
+    const router = useRouter();
     if (!upsellPack) return null;
 
     const packPrice = upsellPack.price;
@@ -25,9 +27,9 @@ export function UpsellSection({ currentVariant, upsellPack }: UpsellSectionProps
         >
             <div className="flex items-center gap-3 mb-6">
                 <div className="bg-green-brand/10 text-green-700 p-2 rounded-xl">
-                    <TrendingUp className="w-5 h-5" />
+                    <TrendingUp className="w-5 h-5" aria-hidden="true" />
                 </div>
-                <span className="text-xs font-black text-green-800 uppercase tracking-widest">
+                <span className="text-[11px] font-black text-green-800 uppercase tracking-widest">
                     Opción Recomendada: {upsellPack.name}
                 </span>
             </div>
@@ -66,17 +68,17 @@ export function UpsellSection({ currentVariant, upsellPack }: UpsellSectionProps
                 }}
                 className="w-full bg-white border-2 border-green-brand py-4 rounded-xl text-green-brand font-black text-base flex items-center justify-center gap-3 hover:bg-green-brand hover:text-white transition-all duration-300 shadow-sm"
             >
-                <Package className="w-5 h-5" />
+                <Package className="w-5 h-5" aria-hidden="true" />
                 <span>Cambiar a Pack de {upsellPack.size} y Ahorrar</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </motion.button>
 
-            <div className="mt-4 flex items-center justify-center gap-4 text-[10px] font-black text-gray-400 uppercase tracking-widest">
+            <div className="mt-4 flex items-center justify-center gap-4 text-[11px] font-black text-gray-400 uppercase tracking-widest">
                 <span className="flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-green-500" />
+                    <Sparkles className="w-3 h-3 text-green-500" aria-hidden="true" />
                     Envío gratis
                 </span>
-                <span className="w-1 h-1 bg-gray-200 rounded-full" />
+                <span className="w-1 h-1 bg-gray-200 rounded-full" aria-hidden="true" />
                 <span>Garantía BuenBocado</span>
             </div>
         </motion.div>

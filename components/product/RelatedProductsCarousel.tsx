@@ -13,7 +13,7 @@ export function RelatedProductsCarousel({ products }: RelatedProductsCarouselPro
 
     return (
         <section className="py-24 bg-marfil/50 border-t border-gray-100">
-            <div className="container">
+            <div className="bocado-container">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-10 lg:mb-16 gap-6 px-4">
                     <div className="max-w-3xl">
                         <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">

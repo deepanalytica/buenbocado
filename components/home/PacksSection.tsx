@@ -40,7 +40,7 @@ export const PacksSection = () => {
             {/* Ambient Elements */}
             <div className="absolute top-0 right-0 w-[50rem] h-[50rem] bg-green-light rounded-full blur-[150px] opacity-40 pointer-events-none"></div>
 
-            <div className="container relative z-10">
+            <div className="bocado-container relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -49,8 +49,8 @@ export const PacksSection = () => {
                     className="text-center mb-24 max-w-2xl mx-auto"
                 >
                     <div className="inline-flex items-center gap-3 glass border-white/50 px-5 py-2.5 rounded-2xl mb-8 shadow-sm">
-                        <Box className="w-4 h-4 text-green-brand" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.25em] text-gray-400">Logística Inteligente</span>
+                        <Box className="w-4 h-4 text-green-brand" aria-hidden="true" />
+                        <span className="text-[11px] font-black uppercase tracking-[0.25em] text-gray-400">Logística Inteligente</span>
                     </div>
                     <h2 className="tracking-tighter mb-6 lg:mb-8">Packs que <span className="text-gradient">simplifican</span> todo.</h2>
                     <p className="text-gray-500 font-medium text-sm lg:text-base pr-4">
@@ -72,7 +72,7 @@ export const PacksSection = () => {
                                 className={`relative group group flex flex-col h-full bg-white rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-12 transition-all duration-500 hover:shadow-hover hover:-translate-y-4 border ${isFeatured ? 'ring-[6px] ring-green-brand/5 border-green-brand/20' : 'border-gray-100'}`}
                             >
                                 {pack.badge && (
-                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-gray-900 text-white text-[9px] font-black px-6 py-2.5 rounded-full uppercase tracking-widest shadow-xl">
+                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-gray-900 text-white text-[10px] font-black px-6 py-2.5 rounded-full uppercase tracking-widest shadow-xl">
                                         {pack.badge}
                                     </div>
                                 )}
@@ -96,9 +96,9 @@ export const PacksSection = () => {
                                             "Envío Express Prioritario",
                                             "Nutrición Real Garantizada"
                                         ].map((benefit, i) => (
-                                            <div key={i} className="flex items-center gap-3 text-[11px] font-bold text-gray-500">
+                                            <div key={i} className="flex items-center gap-3 text-[12px] font-bold text-gray-500">
                                                 <div className="w-5 h-5 rounded-full bg-green-light flex items-center justify-center">
-                                                    <Check className="w-3 h-3 text-green-brand" />
+                                                    <Check className="w-3 h-3 text-green-brand" aria-hidden="true" />
                                                 </div>
                                                 <span>{benefit}</span>
                                             </div>

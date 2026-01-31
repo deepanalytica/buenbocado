@@ -11,7 +11,7 @@ export function Footer() {
             <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-green-brand/5 rounded-full blur-[150px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-[50rem] h-[50rem] bg-blue-brand/5 rounded-full blur-[150px] pointer-events-none translate-y-1/2 -translate-x-1/2"></div>
 
-            <div className="container relative z-10 py-24 lg:py-32">
+            <div className="bocado-container relative z-10 py-24 lg:py-32">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-12 gap-y-20">
                     {/* Brand Pillar */}
                     <div className="lg:col-span-4 space-y-12">
@@ -22,6 +22,7 @@ export function Footer() {
                                 width={200}
                                 height={60}
                                 className="brightness-0 invert w-48 h-auto"
+                                priority
                             />
                         </Link>
                         <p className="text-gray-500 text-lg font-medium leading-relaxed max-w-sm">
@@ -39,8 +40,9 @@ export function Footer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-12 h-12 dark-glass rounded-2xl flex items-center justify-center transition-all hover:-translate-y-1 hover:bg-green-brand hover:border-green-brand border-white/5 shadow-xl group"
+                                    aria-label={`Seguir en ${social.href.split('/').pop()}`}
                                 >
-                                    <social.Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                                    <social.Icon className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
                                 </a>
                             ))}
                         </div>
@@ -98,22 +100,23 @@ export function Footer() {
                             <a
                                 href="mailto:hola@buenbocado.cl"
                                 className="flex items-center gap-6 group"
+                                aria-label="Enviar correo electrónico a hola@buenbocado.cl"
                             >
                                 <div className="w-14 h-14 dark-glass rounded-2xl flex items-center justify-center group-hover:bg-green-brand group-hover:border-green-brand transition-all flex-shrink-0">
-                                    <Mail className="w-6 h-6" />
+                                    <Mail className="w-6 h-6" aria-hidden="true" />
                                 </div>
                                 <div>
-                                    <p className="text-[9px] font-black uppercase tracking-widest text-white/20 mb-1">Elite Support</p>
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-white/20 mb-1">Elite Support</p>
                                     <p className="font-black text-sm tracking-tight">hola@buenbocado.cl</p>
                                 </div>
                             </a>
 
                             <div className="flex items-center gap-6">
                                 <div className="w-14 h-14 dark-glass rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <MapPin className="w-6 h-6" />
+                                    <MapPin className="w-6 h-6" aria-hidden="true" />
                                 </div>
                                 <div>
-                                    <p className="text-[9px] font-black uppercase tracking-widest text-white/20 mb-1">Base de Operaciones</p>
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-white/20 mb-1">Base de Operaciones</p>
                                     <p className="font-black text-sm tracking-tight text-white/60">RM — Santiago, Chile</p>
                                 </div>
                             </div>

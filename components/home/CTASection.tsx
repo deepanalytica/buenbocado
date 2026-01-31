@@ -11,7 +11,7 @@ export const CTASection = () => {
             <div className="absolute top-0 right-0 w-[60rem] h-[60rem] bg-green-brand/10 rounded-full blur-[150px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none translate-y-1/2 -translate-x-1/2"></div>
 
-            <div className="container relative z-10">
+            <div className="bocado-container relative z-10">
                 <div className="max-w-5xl mx-auto text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}

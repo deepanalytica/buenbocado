@@ -65,7 +65,7 @@ export default function FAQPage() {
         <main className="bg-marfil min-h-screen">
             {/* Page Header */}
             <section className="bg-white border-b border-gray-100 pb-16 pt-20">
-                <div className="container">
+                <div className="bocado-container">
                     <div className="flex flex-col items-center text-center">
                         <nav className="flex items-center gap-2 mb-8 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
                             <Link href="/" className="hover:text-green-brand transition-colors flex items-center gap-1.5">
@@ -87,7 +87,7 @@ export default function FAQPage() {
             </section>
 
             <section className="section-py">
-                <div className="container">
+                <div className="bocado-container">
                     <div className="max-w-3xl mx-auto">
                         <div className="space-y-12">
                             {faqs.map((category) => (

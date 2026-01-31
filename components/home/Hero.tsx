@@ -12,7 +12,7 @@ export const Hero = () => {
             <div className="absolute top-0 right-0 w-[60rem] h-[60rem] bg-green-light rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2 opacity-40"></div>
             <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-orange-50 rounded-full blur-[100px] pointer-events-none translate-y-1/2 -translate-x-1/2 opacity-30"></div>
 
-            <div className="container relative z-10">
+            <div className="bocado-container relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                     {/* Brand Content */}
                     <div className="lg:col-span-7 text-center lg:text-left">
@@ -22,11 +22,11 @@ export const Hero = () => {
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         >
                             <div className="inline-flex items-center gap-4 bg-white border border-gray-100 px-6 py-3 rounded-full shadow-premium mb-12">
-                                <span className="flex h-2 w-2 rounded-full bg-green-brand animate-pulse"></span>
-                                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">Snacks de Próxima Generación</span>
+                                <span className="flex h-2 w-2 rounded-full bg-green-brand animate-pulse" aria-hidden="true"></span>
+                                <span className="text-[11px] font-black uppercase tracking-[0.3em] text-gray-400">Snacks de Próxima Generación</span>
                             </div>
 
-                            <h1 className="mb-8 lg:mb-12">
+                            <h1 className="display-title mb-8 lg:mb-12">
                                 El futuro de su <br />
                                 <span className="text-gradient">nutrición</span> es <br />
                                 <span className="relative">
@@ -73,7 +73,7 @@ export const Hero = () => {
                             <div className="relative aspect-square max-w-lg mx-auto">
                                 <Image
                                     src="/assets/hero.png"
-                                    alt="BuenBocado Premium"
+                                    alt="Compota BuenBocado Premium de fruta 100% natural"
                                     fill
                                     className="object-contain drop-shadow-[0_60px_60px_rgba(0,0,0,0.12)]"
                                     priority
@@ -86,10 +86,10 @@ export const Hero = () => {
                                 >
                                     <div className="flex items-center gap-4">
                                         <div className="w-12 h-12 bg-green-light rounded-2xl flex items-center justify-center">
-                                            <Sparkles className="w-6 h-6 text-green-brand" />
+                                            <Sparkles className="w-6 h-6 text-green-brand" aria-hidden="true" />
                                         </div>
                                         <div>
-                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400">Calidad</p>
+                                            <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Calidad</p>
                                             <p className="text-sm font-black text-gray-900">100% Orgánico</p>
                                         </div>
                                     </div>
@@ -110,10 +110,10 @@ export const Hero = () => {
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-1">
-                                                <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                                                <Star className="w-3 h-3 text-yellow-400 fill-current" aria-hidden="true" />
                                                 <span className="text-sm font-black">4.9/5</span>
                                             </div>
-                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400">Basado en reseñas</p>
+                                            <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Basado en reseñas</p>
                                         </div>
                                     </div>
                                 </motion.div>

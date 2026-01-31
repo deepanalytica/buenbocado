@@ -81,7 +81,7 @@ export function ProductCard({
                 </div>
 
                 <Link href={`/producto/${slug}`} className="block mb-4 lg:mb-6">
-                    <h3 className="text-sm lg:text-xl font-black text-gray-900 leading-tight tracking-tight group-hover:text-green-brand transition-colors line-clamp-2 h-[2.5rem] lg:h-[2.8rem]">
+                    <h3 className="product-card-title text-gray-900 group-hover:text-green-brand transition-colors">
                         {name}
                     </h3>
                 </Link>

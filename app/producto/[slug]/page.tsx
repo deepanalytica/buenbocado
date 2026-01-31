@@ -28,7 +28,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
     return (
         <main className="min-h-screen pb-32 lg:pb-32 bg-white">
-            <div className="container lg:pt-32 pt-24 pb-16">
+            <div className="bocado-container lg:pt-32 pt-24 pb-16">
                 {/* Elite Back Navigation */}
                 <Link
                     href="/tienda"

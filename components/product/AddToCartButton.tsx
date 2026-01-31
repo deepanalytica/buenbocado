@@ -63,15 +63,15 @@ export function AddToCartButton({ product, variants, defaultVariant }: AddToCart
                             <span className="text-xl text-gray-400 line-through font-medium">
                                 {formatPrice(selectedVariant.compareAtPrice)}
                             </span>
-                            <div className="inline-flex items-center gap-1.5 bg-orange-50 text-orange-brand text-[10px] font-black px-3 py-1 rounded-lg uppercase tracking-widest border border-orange-100 mt-1">
-                                <Sparkles className="w-3 h-3" />
+                            <div className="inline-flex items-center gap-1.5 bg-orange-50 text-orange-brand text-[11px] font-black px-3 py-1 rounded-lg uppercase tracking-widest border border-orange-100 mt-1">
+                                <Sparkles className="w-3 h-3" aria-hidden="true" />
                                 -{savingsPercent}% Dcto
                             </div>
                         </div>
                     )}
                 </div>
                 {selectedVariant.compareAtPrice && (
-                    <p className="text-[10px] text-green-600 font-black uppercase tracking-[0.2em]">
+                    <p className="text-[11px] text-green-700 font-black uppercase tracking-[0.2em]">
                         ¡Ahorro Elite: {formatPrice(savings)}!
                     </p>
                 )}
@@ -94,6 +94,7 @@ export function AddToCartButton({ product, variants, defaultVariant }: AddToCart
                                 <button
                                     key={variant.id}
                                     onClick={() => setSelectedVariantId(variant.id)}
+                                    aria-pressed={isSelected}
                                     className={`
                                         group relative px-6 py-6 rounded-[1.5rem] border-2 transition-all text-left overflow-hidden
                                         ${isSelected
@@ -112,8 +113,8 @@ export function AddToCartButton({ product, variants, defaultVariant }: AddToCart
                                     </div>
                                     {isSelected && (
                                         <div className="absolute top-4 right-4">
-                                            <div className="w-6 h-6 bg-green-brand rounded-lg flex items-center justify-center">
-                                                <Check className="w-3.5 h-3.5 text-white stroke-[4px]" />
+                                            <div className="w-6 h-6 bg-green-brand rounded-lg flex items-center justify-center shadow-sm">
+                                                <Check className="w-3.5 h-3.5 text-white stroke-[4px]" aria-hidden="true" />
                                             </div>
                                         </div>
                                     )}
@@ -135,8 +136,9 @@ export function AddToCartButton({ product, variants, defaultVariant }: AddToCart
                             onClick={() => setQuantity(Math.max(1, quantity - 1))}
                             className="w-12 h-12 rounded-xl flex items-center justify-center hover:bg-gray-soft transition-colors disabled:opacity-30"
                             disabled={quantity <= 1}
+                            aria-label="Disminuir cantidad"
                         >
-                            <Minus className="w-5 h-5 text-gray-900" />
+                            <Minus className="w-5 h-5 text-gray-900" aria-hidden="true" />
                         </button>
                         <span className="flex-1 text-center font-black text-xl text-gray-900">
                             {quantity}
@@ -144,8 +146,9 @@ export function AddToCartButton({ product, variants, defaultVariant }: AddToCart
                         <button
                             onClick={() => setQuantity(quantity + 1)}
                             className="w-12 h-12 rounded-xl flex items-center justify-center hover:bg-gray-soft transition-colors"
+                            aria-label="Aumentar cantidad"
                         >
-                            <Plus className="w-5 h-5 text-gray-900" />
+                            <Plus className="w-5 h-5 text-gray-900" aria-hidden="true" />
                         </button>
                     </div>
                 </div>
@@ -158,8 +161,8 @@ export function AddToCartButton({ product, variants, defaultVariant }: AddToCart
                         className="h-16 bg-gray-900 text-white rounded-[1.5rem] flex items-center justify-center gap-3 relative overflow-hidden group shadow-xl shadow-black/10 active:shadow-inner"
                     >
                         <div className="absolute inset-0 bg-green-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <ShoppingCart className="w-5 h-5 relative z-10" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.25em] relative z-10">Agregar</span>
+                        <ShoppingCart className="w-5 h-5 relative z-10" aria-hidden="true" />
+                        <span className="text-[11px] font-black uppercase tracking-[0.25em] relative z-10">Agregar</span>
                     </motion.button>
                 </div>
             </div>
@@ -174,10 +177,10 @@ export function AddToCartButton({ product, variants, defaultVariant }: AddToCart
                         className="absolute -bottom-2 w-full glass px-6 py-4 rounded-2xl border-green-brand/10 shadow-premium flex items-center gap-4 z-50 pointer-events-none"
                     >
                         <div className="w-8 h-8 rounded-xl bg-green-brand flex items-center justify-center">
-                            <Check className="w-4 h-4 text-white stroke-[4px]" />
+                            <Check className="w-4 h-4 text-white stroke-[4px]" aria-hidden="true" />
                         </div>
                         <div>
-                            <p className="text-[10px] font-black text-gray-900 uppercase tracking-widest">Éxito en Logística</p>
+                            <p className="text-[11px] font-black text-gray-900 uppercase tracking-widest">Éxito en Logística</p>
                             <p className="text-xs text-gray-500 font-medium">{quantity} unidades listas para envío</p>
                         </div>
                     </motion.div>

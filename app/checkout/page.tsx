@@ -51,7 +51,7 @@ export default function CheckoutPage() {
 
     if (items.length === 0) {
         return (
-            <main className="container py-20">
+            <main className="bocado-container py-12">
                 <div className="max-w-md mx-auto text-center">
                     <h1 className="mb-4">Tu carrito está vacío</h1>
                     <p className="text-gray-600 mb-8">

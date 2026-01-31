@@ -33,7 +33,7 @@ export default async function PoliticasPage({ params }: { params: { type: string
 
     if (!content) {
         return (
-            <main className="container py-12">
+            <main className="bocado-container py-12">
                 <div className="max-w-4xl mx-auto">
                     <h1 className="mb-8">{policyTitles[params.type]}</h1>
                     <p className="text-gray-600">Contenido no disponible.</p>

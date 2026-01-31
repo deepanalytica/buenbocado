@@ -34,7 +34,7 @@ export default function B2BPage() {
         <main>
             {/* Hero */}
             <section className="bg-gradient-to-b from-green-light to-white py-16">
-                <div className="container">
+                <div className="bocado-container">
                     <div className="max-w-3xl mx-auto text-center">
                         <h1 className="mb-6">Colegios y Kioscos</h1>
                         <p className="text-xl text-gray-700 mb-4">
@@ -49,7 +49,7 @@ export default function B2BPage() {
 
             {/* Benefits */}
             <section className="py-16">
-                <div className="container">
+                <div className="bocado-container">
                     <h2 className="text-center mb-12">Beneficios para tu Negocio</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -88,7 +88,7 @@ export default function B2BPage() {
 
             {/* What We Offer */}
             <section className="py-16 bg-marfil">
-                <div className="container">
+                <div className="bocado-container">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-center mb-12">Qué Ofrecemos</h2>
 
@@ -171,7 +171,7 @@ export default function B2BPage() {
 
             {/* Contact Form */}
             <section className="py-16">
-                <div className="container">
+                <div className="bocado-container">
                     <div className="max-w-2xl mx-auto">
                         <div className="text-center mb-8">
                             <h2 className="mb-4">Quiero Comprar por Volumen</h2>

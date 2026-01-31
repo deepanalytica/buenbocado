@@ -20,7 +20,7 @@ export default function ContactoPage() {
     };
 
     return (
-        <main className="container py-12">
+        <main className="bocado-container py-12">
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-12">
                     <h1 className="mb-4">Contacto</h1>

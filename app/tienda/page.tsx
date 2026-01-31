@@ -15,7 +15,7 @@ export default async function TiendaPage() {
             <section className="relative pt-24 pb-20 border-b border-gray-50 overflow-hidden">
                 <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-green-brand/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
 
-                <div className="container relative z-10">
+                <div className="bocado-container">
                     <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
                         <nav className="flex items-center gap-3 mb-10 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
                             <Link href="/" className="hover:text-green-brand transition-colors flex items-center gap-2">
@@ -37,11 +37,11 @@ export default async function TiendaPage() {
             </section>
 
             <section className="py-24">
-                <div className="container">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div className="bocado-container">
+                    <div className="shop-layout">
 
                         {/* Tactical Sidebar */}
-                        <aside className="lg:col-span-3 space-y-16">
+                        <aside className="shop-sidebar space-y-16">
                             {/* Filter Control Hub */}
                             <div className="glass p-10 rounded-[2.5rem] border-gray-100 shadow-premium">
                                 <div className="flex items-center gap-4 mb-10">
@@ -101,7 +101,7 @@ export default async function TiendaPage() {
                         </aside>
 
                         {/* Elite Products Column */}
-                        <div className="lg:col-span-9">
+                        <div>
                             {/* Sort Header */}
                             <div className="flex flex-col sm:flex-row justify-between items-center gap-10 mb-20 bg-gray-soft/50 rounded-[3rem] p-8 border border-gray-100">
                                 <div className="flex items-center gap-6">
@@ -120,7 +120,7 @@ export default async function TiendaPage() {
 
                             {/* Tactical Grid */}
                             {products.length > 0 ? (
-                                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16">
+                                <div className="shop-grid">
                                     {products.map((product: any) => {
                                         const variant = product.variants[0];
                                         if (!variant) return null;

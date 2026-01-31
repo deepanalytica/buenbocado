@@ -34,7 +34,7 @@ export const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-100 to-transparent"></div>
             <div className="absolute top-40 right-40 w-80 h-80 bg-green-light rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
 
-            <div className="container relative z-10">
+            <div className="bocado-container relative z-10">
                 {/* Elite Section Header */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-end mb-16 lg:mb-32">
                     <motion.div

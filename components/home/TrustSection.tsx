@@ -40,7 +40,7 @@ export const TrustSection = () => {
             {/* Ambient Background Accents */}
             <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-orange-50/20 rounded-full blur-[120px] pointer-events-none opacity-40"></div>
 
-            <div className="container relative z-10">
+            <div className="bocado-container relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -49,8 +49,8 @@ export const TrustSection = () => {
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <div className="inline-flex items-center gap-3 glass px-5 py-2.5 rounded-2xl mb-8 border-gray-100 shadow-sm">
-                            <Orbit className="w-4 h-4 text-green-brand animate-spin-slow" />
-                            <span className="text-[10px] font-black uppercase tracking-[0.25em] text-gray-400">Nuestro Compromiso</span>
+                            <Orbit className="w-4 h-4 text-green-brand animate-spin-slow" aria-hidden="true" />
+                            <span className="text-[11px] font-black uppercase tracking-[0.25em] text-gray-400">Nuestro Compromiso</span>
                         </div>
                         <h2 className="mb-6 lg:mb-8 tracking-tighter">
                             Nutrición real para <br />
@@ -71,7 +71,7 @@ export const TrustSection = () => {
                         <div className="aspect-[4/3] bg-gray-soft rounded-[3rem] overflow-hidden relative group border border-gray-100 shadow-premium">
                             <div className="absolute inset-0 bg-gradient-to-br from-green-brand/5 to-transparent"></div>
                             <div className="absolute inset-0 flex items-center justify-center p-20">
-                                <Sparkles className="w-32 h-32 text-green-brand/10 group-hover:scale-110 transition-transform duration-700" />
+                                <Sparkles className="w-32 h-32 text-green-brand/10 group-hover:scale-110 transition-transform duration-700" aria-hidden="true" />
                             </div>
                             {/* Decorative Label */}
                             <div className="absolute bottom-10 left-10 glass px-6 py-4 rounded-3xl border-white/50">
@@ -94,7 +94,7 @@ export const TrustSection = () => {
                             className="group p-8 lg:p-10 rounded-[2rem] lg:rounded-[2.5rem] bg-white border border-gray-100/50 hover:shadow-hover hover:-translate-y-2 transition-all duration-500"
                         >
                             <div className={`w-14 h-14 ${feature.color} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
-                                <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
+                                <feature.icon className={`w-6 h-6 ${feature.iconColor}`} aria-hidden="true" />
                             </div>
                             <h3 className="text-xl font-black mb-4 text-gray-900 group-hover:text-green-brand transition-colors">
                                 {feature.title}

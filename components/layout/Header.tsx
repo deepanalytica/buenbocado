@@ -35,7 +35,7 @@ export function Header() {
                 : "py-6 bg-transparent"
                 }`}
         >
-            <div className="container">
+            <div className="bocado-container">
                 <div className="bg-white/80 backdrop-blur-xl border border-white/50 rounded-[2rem] px-8 py-4 flex items-center justify-between shadow-premium transition-all">
                     {/* Logo Area */}
                     <Link href="/" className="flex items-center group">
@@ -57,10 +57,10 @@ export function Header() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="relative text-[10px] font-black uppercase tracking-[0.25em] text-gray-500 hover:text-green-brand transition-colors group"
+                                className="relative text-[11px] font-black uppercase tracking-[0.25em] text-gray-500 hover:text-green-brand transition-colors group"
                             >
                                 <span>{link.name}</span>
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-brand transition-all group-hover:w-full" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-brand transition-all group-hover:w-full" aria-hidden="true" />
                             </Link>
                         ))}
                     </nav>
@@ -70,8 +70,9 @@ export function Header() {
                         <Link
                             href="/carrito"
                             className="relative w-12 h-12 flex items-center justify-center bg-gray-900 text-white rounded-2xl hover:bg-green-brand transition-all shadow-xl hover:-translate-y-1 active:scale-95 group"
+                            aria-label={`Ver carrito de compras, ${itemCount} productos`}
                         >
-                            <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
                             {mounted && itemCount > 0 && (
                                 <span className="absolute -top-2 -right-2 bg-green-brand text-white text-[9px] font-black rounded-full w-6 h-6 flex items-center justify-center shadow-lg border-2 border-white animate-bounce-short">
                                     {itemCount}
@@ -82,8 +83,10 @@ export function Header() {
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             className="lg:hidden w-12 h-12 flex items-center justify-center bg-marfil border border-gray-100 rounded-2xl text-gray-900 hover:text-green-brand transition-all"
+                            aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                            aria-expanded={mobileMenuOpen}
                         >
-                            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                            {mobileMenuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
                         </button>
                     </div>
                 </div>
@@ -120,7 +123,7 @@ export function Header() {
                                             onClick={() => setMobileMenuOpen(false)}
                                         >
                                             <span className="group-hover:text-green-brand transition-colors">{link.name}</span>
-                                            <ArrowRight className="w-6 h-6 text-green-brand opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" />
+                                            <ArrowRight className="w-6 h-6 text-green-brand opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" aria-hidden="true" />
                                         </Link>
                                     </motion.div>
                                 ))}
@@ -145,8 +148,9 @@ export function Header() {
                         <button
                             onClick={() => setMobileMenuOpen(false)}
                             className="absolute top-10 right-10 w-14 h-14 bg-gray-900 text-white rounded-2xl flex items-center justify-center shadow-2xl z-[200]"
+                            aria-label="Cerrar menú"
                         >
-                            <X className="w-6 h-6" />
+                            <X className="w-6 h-6" aria-hidden="true" />
                         </button>
                     </motion.div>
                 )}
